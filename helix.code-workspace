@@ -1,0 +1,106 @@
+{
+	"folders": [
+		{
+			"path": "repos/helix-bot"
+		},
+		{
+			"path": "repos/helix-admin"
+		},
+		{
+			"path": "toolchain"
+		},
+	],
+	"settings": {
+		"todohighlight.isEnable": true,
+		"todohighlight.keywords": [
+			"TODO:",
+			"KLUDGE:",
+			"NOTE:",
+			"HACK:"
+		],
+		"eslint.enable": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		},
+		"eslint.validate": [
+			"javascript"
+		],
+		"[javascript]": {
+			"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+		},
+		"stylelint.enable": true,
+		"[css]": {
+			"editor.defaultFormatter": "stylelint.vscode-stylelint"
+		},
+		"terminal.integrated.profiles.osx": {
+			"zsh": {
+				"path": "/bin/zsh",
+				"args": [
+					"-l",
+					"-i"
+				]
+			}
+		}
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"type": "shell",
+				"label": "bootstrap",
+				"command": "./bootstrap.sh",
+				"options": {
+					"cwd": "${workspaceFolder:toolchain}",
+					"statusbar": {
+						"hide": true
+					},
+				},
+			},
+			{
+				"type": "shell",
+				"label": "dev:bot",
+				"command": "npm start",
+				"options": {
+					"cwd": "${workspaceFolder:helix-bot}",
+				},
+			},
+			{
+				"type": "shell",
+				"label": "dev:admin",
+				"command": "npm start",
+				"options": {
+					"cwd": "${workspaceFolder:helix-admin}",
+				},
+			},
+			{
+				"type": "shell",
+				"label": "dev",
+				"command": "echo",
+				"args": [
+					"Starting dev servers"
+				],
+				"group": {
+					"kind": "none",
+					"isDefault": true
+				},
+				"dependsOrder": "parallel",
+				"dependsOn": [
+					"dev:admin",
+					"dev:bot"
+				]
+			},
+		]
+	},
+	"extensions": {
+		"recommendations": [
+			"actboy168.tasks",
+			"stylelint.vscode-stylelint",
+			"dbaeumer.vscode-eslint",
+			"wayou.vscode-todo-highlight",
+			"waderyan.gitblame",
+			"bierner.jsdoc-markdown-highlighting",
+			"esbenp.prettier-vscode",
+			"Tobermory.es6-string-html"
+		]
+	}
+}
