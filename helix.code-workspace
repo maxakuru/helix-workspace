@@ -59,7 +59,7 @@
 			{
 				"type": "shell",
 				"label": "dev:bot",
-				"command": "npm start",
+				"command": "DEV_QUEUE='arn:aws:sqs:us-east-1:118435662149:maxed-test-queue.fifo' DEV_ADMIN_HOST='http://localhost:3001' npm start",
 				"options": {
 					"cwd": "${workspaceFolder:helix-bot}",
 				},
@@ -67,7 +67,7 @@
 			{
 				"type": "shell",
 				"label": "dev:admin",
-				"command": "npm start",
+				"command": "WEBSERVER_PORT=3001 HLX_DEV_SERVER_HOST='localhost:3001' npm start",
 				"options": {
 					"cwd": "${workspaceFolder:helix-admin}",
 				},
