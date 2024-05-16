@@ -7,6 +7,21 @@
 			"path": "repos/helix-admin"
 		},
 		{
+			"path": "repos/helix-admin-support"
+		},
+		{
+			"path": "repos/helix-shared"
+		},
+		{
+			"path": "repos/helix-rum-js"
+		},
+		{
+			"path": "repos/helix-config"
+		},
+		{
+			"path": "repos/helix-rum-collector"
+		},
+		{
 			"path": "toolchain"
 		},
 	],
@@ -20,7 +35,7 @@
 		],
 		"eslint.enable": true,
 		"editor.codeActionsOnSave": {
-			"source.fixAll.eslint": true
+			"source.fixAll.eslint": "explicit"
 		},
 		"eslint.validate": [
 			"javascript"
